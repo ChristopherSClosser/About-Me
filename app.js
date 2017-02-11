@@ -1,6 +1,7 @@
 'use strict';
 // THE FIRST LINE SHOULD ALWAYS BE...'use strict'
 var correct = 0;
+var answer;
 var takeQuiz = confirm ('Hello, would you like to take a short quiz about me, Chris?');
 
 if (takeQuiz) {
@@ -12,22 +13,25 @@ if (takeQuiz) {
     // document.write('<h1>Too bad starting anyway!</h2>');
 }
 
-// function inputVal(){
-//   while (answer != 'Y' && answer != 'N') {
-//     var answer = prompt(answer + ' Is not a valid input. Please type either a Y or N').toUpperCase();
-// };
+function inputVal () {
+  while (answer != 'Y' && answer != 'N') {
+    answer = prompt(answer + ' Is not a valid input. Please type either a Y or N').toUpperCase();
+  }
+}
 
 while (takeQuiz) {
   // first question if user clicks ok
   var yesNo = 'Please answer with a Y or N. \n';
-  var askA = 'Do I have a dog?';
-  var answer = prompt (yesNo + askA) .toUpperCase ();
-  // while (answer != 'Y' && answer != 'N') {
-  //   var answer = prompt(answer + ' Is not a valid input. Please type either a Y or N').toUpperCase();
-  // }
 
   function questionA () {
-    // inputVal();
+    var askA = 'Do I have a dog?';
+    answer = prompt (yesNo + askA) .toUpperCase ();
+    /*
+    while (answer != 'Y' && answer != 'N') {
+      var answer = prompt(answer + ' Is not a valid input. Please type either a Y or N').toUpperCase();
+    }*/
+
+    inputVal();
     if (answer === 'Y') {
       console.log ('Sorry, I do not have a dog.');
       document.write (askA + '<h2>Sorry I do not have a dog.</h2>');
@@ -44,6 +48,7 @@ while (takeQuiz) {
   function questionB () {
     var askB = 'Am I older than 40?';
     answer = prompt (yesNo + askB);
+    inputVal();
 
     if (answer === 'Y') {
       console.log('Shame on you! Not quite.');
@@ -61,6 +66,7 @@ while (takeQuiz) {
   function questionC () {
     var askC = 'Do I like pizza?';
     answer = prompt(yesNo + askC).toUpperCase();
+    inputVal ();
 
     if (answer === 'Y') {
       correct += 1;
@@ -77,7 +83,8 @@ while (takeQuiz) {
   // Q #4
   function questionD () {
     var askD = 'Do I like to gamble?';
-    var answer = prompt(yesNo + askD).toUpperCase();
+    answer = prompt(yesNo + askD).toUpperCase();
+    inputVal ();
 
     if (answer === 'Y') {
       console.log('No I do not!');
@@ -94,7 +101,8 @@ while (takeQuiz) {
   // Q #5
   function questionE () {
     var askE = 'Is it true that i have been to the moon?';
-    var answer = prompt(yesNo + askE).toUpperCase();
+    answer = prompt(yesNo + askE).toUpperCase();
+    inputVal ();
 
     if(answer === 'Y') {
       console.log ('I wish! 12 people have been on the moon and no one since 1972.');
@@ -110,11 +118,16 @@ while (takeQuiz) {
 
   // Q #6 pick a number
   function questionF () {
-    var userNum = prompt('I am thinking of a number between 1 and 20.' /*'\nYou have ' /*+ tries*/);
+    var userNum = prompt ('I am thinking of a number between 1 and 20.' /*'\nYou have ' /*+ tries*/);
   // need to figure out how to exit loop if answer is correct
+    userNum = parseInt (userNum);
+    /*
+    while (userNum === NaN) {
+      userNum = prompt ()
+    }
+    */
     var myNum = Math.floor (Math.random () * 20 + 1);
     for (var i = 0; i < 4; i++) {
-      userNum = parseInt (userNum);
       //console.log(typeof userNum);
       console.log (myNum);
       if (userNum !== myNum) {
