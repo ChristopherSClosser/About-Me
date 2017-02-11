@@ -1,7 +1,7 @@
 'use strict';
 // THE FIRST LINE SHOULD ALWAYS BE...'use strict'
 var correct = 0;
-var takeQuiz = confirm('Hello, would you like to take a short quiz about me Chris?');
+var takeQuiz = confirm('Hello, would you like to take a short quiz about me, Chris?');
 
 if(takeQuiz) {
   console.log('Awesome! Lets get started!');
@@ -11,6 +11,11 @@ if(takeQuiz) {
     // console.log('Too bad starting anyway!');
     // document.write('<h1>Too bad starting anyway!</h2>');
 }
+
+// function inputVal(){
+//   while (answer != 'Y' && answer != 'N') {
+//     var answer = prompt(answer + ' Is not a valid input. Please type either a Y or N').toUpperCase();
+// };
 
 while (takeQuiz) {
   // first question if user clicks ok
@@ -22,6 +27,7 @@ while (takeQuiz) {
   // }
 
   function questionA (){
+    // inputVal();
     if(answer === 'Y') {
       console.log('Sorry I do not have a dog.');
       document.write(askA + '<h2>Sorry I do not have a dog.</h2>');
@@ -79,9 +85,9 @@ while (takeQuiz) {
       alert('No I do not!');
     } else {
       correct += 1;
-      console.log('Right it\'s bad enough all of the money that leaves my possession and I get something.');
-      document.write(askD + '<h5>Right it\'s bad enough all of the money that leaves my possession and I get something.</h5>');
-      alert('Right it\'s bad enough all of the money that leaves my possession and I get something.');
+      console.log('Right! It\'s bad enough all of that money leaves my possession and I get nothing.');
+      document.write(askD + '<h5>Right! It\'s bad enough all of that money leaves my possession and I get nothing.</h5>');
+      alert('Right! It\'s bad enough all of that money leaves my possession and I get nothing.');
     }
   };
 
