@@ -124,12 +124,21 @@ while (takeQuiz) {
     console.log(userNum);
     console.log(typeof userNum);
 
+    //function to make sure user is entering a valid number
     function validNum () {
+      if (userNum > 20) {
+        userNum = prompt (userNum + ' is greater than 20! Please enter a number between 1 and 20.');
+        userNum = parseInt (userNum);
+      }
       while (isNaN(userNum) /*|| typeof userNum !== 'number' || userNum === null || userNum === NaN*/) {
         console.log('just entered the while userNum === NaN and userNum is really ' + typeof userNum);
         userNum = prompt (userNum + ' is not a number, please enter a number between 1 and 20.');
         userNum = parseInt (userNum);
         console.log(typeof userNum);
+        if (userNum > 20) {
+          userNum = prompt (userNum + ' is greater than 20! Please enter a number between 1 and 20.');
+          userNum = parseInt (userNum);
+        }
       }
     }
 
@@ -168,18 +177,18 @@ while (takeQuiz) {
   // Q #7 where have I lived
   function questionG () {
     var myHomes = ['California', 'Texas', 'Oklahoma'];
-    var userAns = prompt ('Besides Washington, what other states do you think I lived?');
-    // need to use wile less than 6
     for (var i = 0; i < 6; i++) {
-      while (i <= myHomes.lenght) {
-        if (userAns !== myHomes[i]) {
-          console.log ('I\'m sorry please try again. \nI have never lived in ' + userAns);
-          alert ('I\'m sorry please try again. \nI have never lived in ' + userAns);
-          // ii++;
+      var userAns = prompt('Besides Washington, what other states do you think I lived?');
+      for (var ii = 0; ii < myHomes.length; ii++) {
+        console.log(userAns + myHomes[ii]);
+        if(userAns === myHomes[ii]){
+          console.log('You are correct, I have lived in ' + userAns);
+          alert('You are correct, I have lived in ' + userAns);
+          break;
         } else {
-          correct += 1;
-          console.log ('You are correct, I have lived in ' + userAns);
-          alert ('You are correct, I have lived in ' + userAns);
+          //correct += 1;
+          console.log('I\'m sorry please try again. \nI have never lived in ' + userAns);
+          alert('I\'m sorry please try again. \nI have never lived in ' + userAns);
           break;
         }
       }
@@ -202,9 +211,3 @@ while (takeQuiz) {
 }
 
 // done...print the page
-
-//var tries = counter -= counter;
-var tries = 6;
-for (var i = 0; i < 6; i++) {
-  console.log(tries = tries - 1);
-}
