@@ -17,9 +17,9 @@ while (takeQuiz) {
   var yesNo = 'Please answer with a Y or N. \n';
   var askA = 'Do I have a dog?';
   var answer = prompt(yesNo + askA).toUpperCase();
-  // while (answer != 'Y' && answer != 'N') {
-  //   var answer = prompt(answer + ' Is not a valid input. Please type either a Y or N').toUpperCase();
-  // }
+  while (answer != 'Y' && answer != 'N') {
+    var answer = prompt(answer + ' Is not a valid input. Please type either a Y or N').toUpperCase();
+  }
 
   if(answer === 'Y') {
     console.log('Sorry I do not have a dog.');
