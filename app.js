@@ -136,6 +136,7 @@ while (takeQuiz) {
     validNum ();
     var tries = 3;
     var myNum = Math.floor (Math.random () * 20 + 1);
+
     for (var i = 0; i < 4; i++) {
       console.log(typeof userNum);
       console.log (myNum);
