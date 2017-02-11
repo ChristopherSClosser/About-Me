@@ -120,15 +120,15 @@ while (takeQuiz) {
   function questionF () {
     var userNum = prompt ('I am thinking of a number between 1 and 20.' /*'\nYou have ' /*+ tries*/);
   // need to figure out how to exit loop if answer is correct
-    userNum = parseInt (userNum);
+    //userNum = parseInt (userNum);
     console.log(userNum);
     console.log(typeof userNum);
 
     function validNum () {
-      while (typeof userNum !== 'number' || userNum === null || userNum === NaN) {
+      if (userNum === NaN /*|| typeof userNum !== 'number' || userNum === null || userNum === NaN*/) {
         console.log('just entered the while userNum === NaN and userNum is really ' + typeof userNum);
         userNum = prompt (userNum + ' is not a number, please enter a number between 1 and 20.');
-        userNum = parseInt (userNum);
+        //userNum = parseInt (userNum);
         console.log(typeof userNum);
       }
     }
@@ -145,7 +145,7 @@ while (takeQuiz) {
           if (userNum > myNum) {
             console.log ('I\'m sorry ' + userNum + ' is not the number I was thinking of. Try a smaller number.' + '\nYou have ' + tries + ' more tries.');
             userNum = prompt ('I\'m sorry ' + userNum + ' is not the number I was thinking of. Try a smaller number.' + '\nYou have ' + tries + ' more tries.');
-            userNum = parseInt (userNum);
+            //userNum = parseInt (userNum);
             tries = tries - 1;
             validNum ();
           } else {
