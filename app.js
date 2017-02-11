@@ -123,44 +123,53 @@ while (takeQuiz) {
     userNum = parseInt (userNum);
     console.log(userNum);
     console.log(typeof userNum);
-
+    /*
     function validNum () {
-      while (typeof userNum !== 'number' || userNum === null || userNum === NaN) {
+      if (userNum === NaN) {
         console.log('just entered the while userNum === NaN and userNum is really ' + typeof userNum);
         userNum = prompt (userNum + ' is not a number, please enter a number between 1 and 20.');
         userNum = parseInt (userNum);
         console.log(typeof userNum);
       }
     }
+    */
 
-    validNum ();
+    //validNum ();
     var tries = 3;
     var myNum = Math.floor (Math.random () * 20 + 1);
     for (var i = 0; i < 4; i++) {
       console.log(typeof userNum);
       console.log (myNum);
-      if (userNum !== myNum) {
-        if (i !== 3) {
-          console.log(userNum);
-          if (userNum > myNum) {
-            console.log ('I\'m sorry ' + userNum + ' is not the number I was thinking of. Try a smaller number.' + '\nYou have ' + tries + ' more tries.');
-            userNum = prompt ('I\'m sorry ' + userNum + ' is not the number I was thinking of. Try a smaller number.' + '\nYou have ' + tries + ' more tries.');
-            userNum = parseInt (userNum);
-            tries = tries - 1;
-            validNum ();
-          } else {
-            console.log ('I\'m sorry ' + userNum + ' is not the number I was thinking of. Try a larger number.' + '\nYou have ' + tries + ' more tries.');
-            userNum = prompt ('I\'m sorry ' + userNum + ' is not the number I was thinking of. Try a larger number.' + '\nYou have ' + tries + ' more tries.');
-            userNum = parseInt (userNum);
-            tries = tries - 1;
-            validNum ();
-          }
-        }
+      if (userNum === 'NaN') {
+        console.log('just entered the while userNum === NaN and userNum is really ' + typeof userNum);
+        userNum = prompt (userNum + ' is not a number, please enter a number between 1 and 20.');
+        userNum = parseInt (userNum);
+        console.log(typeof userNum);
+
       } else {
-        correct += 1;
-        console.log ('You are correct! I was thinking about ' + userNum + '.');
-        alert ('You are correct! I was thinking about ' + userNum + '.');
-        break;
+        if (userNum !== myNum) {
+          if (i !== 3) {
+            console.log(userNum);
+            if (userNum > myNum) {
+              console.log ('I\'m sorry ' + userNum + ' is not the number I was thinking of. Try a smaller number.' + '\nYou have ' + tries + ' more tries.');
+              userNum = prompt ('I\'m sorry ' + userNum + ' is not the number I was thinking of. Try a smaller number.' + '\nYou have ' + tries + ' more tries.');
+              userNum = parseInt (userNum);
+              tries = tries - 1;
+              //validNum ();
+            } else {
+              console.log ('I\'m sorry ' + userNum + ' is not the number I was thinking of. Try a larger number.' + '\nYou have ' + tries + ' more tries.');
+              userNum = prompt ('I\'m sorry ' + userNum + ' is not the number I was thinking of. Try a larger number.' + '\nYou have ' + tries + ' more tries.');
+              userNum = parseInt (userNum);
+              tries = tries - 1;
+              //validNum ();
+            }
+          }
+        } else {
+          correct += 1;
+          console.log ('You are correct! I was thinking about ' + userNum + '.');
+          alert ('You are correct! I was thinking about ' + userNum + '.');
+          break;
+        }
       }
     }
   }
