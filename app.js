@@ -8,9 +8,6 @@ if (takeQuiz) {
   console.log ('Awesome! Lets get started!');
   document.write ('<h1>Awesome! Lets get started!</h1>');
   alert ('Awesome! Lets get started!');
-} else {
-    // console.log('Too bad starting anyway!');
-    // document.write('<h1>Too bad starting anyway!</h2>');
 }
 
 function inputVal () {
@@ -26,12 +23,8 @@ while (takeQuiz) {
   function questionA () {
     var askA = 'Do I have a dog?';
     answer = prompt (yesNo + askA) .toUpperCase ();
-    /*
-    while (answer != 'Y' && answer != 'N') {
-      var answer = prompt(answer + ' Is not a valid input. Please type either a Y or N').toUpperCase();
-    }*/
-
     inputVal ();
+
     if (answer === 'Y') {
       console.log ('Sorry, I do not have a dog.');
       document.write (askA + '<h2>Sorry I do not have a dog.</h2>');
@@ -44,7 +37,7 @@ while (takeQuiz) {
     }
   }
 
-  // Q #2
+// --------------Q #2---------------
   function questionB () {
     var askB = 'Am I older than 40?';
     answer = prompt (yesNo + askB);
@@ -62,7 +55,7 @@ while (takeQuiz) {
     }
   };
 
-  // Q #3
+// --------------Q #3---------------
   function questionC () {
     var askC = 'Do I like pizza?';
     answer = prompt(yesNo + askC).toUpperCase();
@@ -80,7 +73,7 @@ while (takeQuiz) {
     }
   };
 
-  // Q #4
+// --------------Q #4--------------
   function questionD () {
     var askD = 'Do I like to gamble?';
     answer = prompt(yesNo + askD).toUpperCase();
@@ -98,7 +91,7 @@ while (takeQuiz) {
     }
   };
 
-  // Q #5
+// --------------Q #5---------------
   function questionE () {
     var askE = 'Is it true that i have been to the moon?';
     answer = prompt(yesNo + askE).toUpperCase();
@@ -116,25 +109,26 @@ while (takeQuiz) {
     }
   };
 
-  // Q #6 pick a number
+// --------------Q #6---------------
   function questionF () {
-    var userNum = prompt ('I am thinking of a number between 1 and 20. \nYou have 3 tries' /*+ tries*/);
-  // need to figure out how to exit loop if answer is correct
+    var userNum = prompt ('I am thinking of a number between 1 and 20. \nYou have 3 tries');
     userNum = parseInt (userNum);
     console.log(userNum);
     console.log(typeof userNum);
 
     //function to make sure user is entering a valid number
     function validNum () {
+
       if (userNum > 20) {
         userNum = prompt (userNum + ' is greater than 20! Please enter a number between 1 and 20.');
         userNum = parseInt (userNum);
       }
-      while (isNaN(userNum) /*|| typeof userNum !== 'number' || userNum === null || userNum === NaN*/) {
-        console.log('just entered the while userNum === NaN and userNum is really ' + typeof userNum);
+
+      while (isNaN(userNum)) {
         userNum = prompt (userNum + ' is not a number, please enter a number between 1 and 20.');
         userNum = parseInt (userNum);
         console.log(typeof userNum);
+
         if (userNum > 20) {
           userNum = prompt (userNum + ' is greater than 20! Please enter a number between 1 and 20.');
           userNum = parseInt (userNum);
@@ -149,6 +143,7 @@ while (takeQuiz) {
     for (var i = 0; i < 4; i++) {
       console.log(typeof userNum);
       console.log (myNum);
+
       if (userNum !== myNum) {
         if (i !== 3) {
           console.log(userNum);
