@@ -31,7 +31,7 @@ while (takeQuiz) {
       var answer = prompt(answer + ' Is not a valid input. Please type either a Y or N').toUpperCase();
     }*/
 
-    inputVal();
+    inputVal ();
     if (answer === 'Y') {
       console.log ('Sorry, I do not have a dog.');
       document.write (askA + '<h2>Sorry I do not have a dog.</h2>');
@@ -48,7 +48,7 @@ while (takeQuiz) {
   function questionB () {
     var askB = 'Am I older than 40?';
     answer = prompt (yesNo + askB);
-    inputVal();
+    inputVal ();
 
     if (answer === 'Y') {
       console.log('Shame on you! Not quite.');
@@ -118,7 +118,7 @@ while (takeQuiz) {
 
   // Q #6 pick a number
   function questionF () {
-    var userNum = prompt ('I am thinking of a number between 1 and 20.' /*'\nYou have ' /*+ tries*/);
+    var userNum = prompt ('I am thinking of a number between 1 and 20. \nYou have 3 tries' /*+ tries*/);
   // need to figure out how to exit loop if answer is correct
     userNum = parseInt (userNum);
     console.log(userNum);
@@ -176,22 +176,43 @@ while (takeQuiz) {
   }
   // Q #7 where have I lived
   function questionG () {
-    var myHomes = ['California', 'Texas', 'Oklahoma'];
+    var tries = 6;
+    var cali = false;
+    var tex = false;
+    var ok = false;
+
     for (var i = 0; i < 6; i++) {
-      var userAns = prompt('Besides Washington, what other states do you think I lived?');
-      for (var ii = 0; ii < myHomes.length; ii++) {
-        console.log(userAns + myHomes[ii]);
-        if(userAns === myHomes[ii]){
-          console.log('You are correct, I have lived in ' + userAns);
-          alert('You are correct, I have lived in ' + userAns);
-          break;
+      var userAns = prompt('Besides Washington, what other states do you think I lived?') .toLowerCase ();
+
+      function compare () {
+        var correct = 'You are correct, I have lived in ';
+        //if (!cali || !tex || !ok) {
+        if (userAns === 'california') {
+          tries = tries - 1;
+          cali = true;
+          correct += 1;
+          console.log(cali + tex + ok);
+          alert (correct + userAns + '\nYou have ' + tries + ' more tries');
+        } else if (userAns === 'texas') {
+          tries = tries - 1;
+          tex = true;
+          correct += 1;
+          console.log(cali + tex + ok);
+          alert (correct + userAns + '\nYou have ' + tries + ' more tries');
+        }else if (userAns === 'oklahoma') {
+          tries = tries - 1;
+          ok = true;
+          correct += 1;
+          console.log(cali + tex + ok);
+          alert (correct + userAns + '\nYou have ' + tries + ' more tries');
         } else {
-          //correct += 1;
-          console.log('I\'m sorry please try again. \nI have never lived in ' + userAns);
-          alert('I\'m sorry please try again. \nI have never lived in ' + userAns);
-          break;
+          tries = tries - 1;
+          alert ('I have not lived in ' + userAns + '.' + '\nYou have ' + '\nYou have ' + tries + ' more tries');
+          console.log(cali + tex + ok);
         }
+        //}
       }
+      compare ();
     }
   }
 
@@ -203,10 +224,9 @@ while (takeQuiz) {
   questionF ();
   questionG ();
 
-  console.log (myHomes);
-  console.log ('You got ' + correct + ' of 7 answers correct!');
+  console.log ('You got ' + correct + ' of 9 answers correct!');
   // document.write();
-  takeQuiz = confirm (myHomes + '\nYou got ' + correct + ' of 7 answers correct!\nTry again?');
+  takeQuiz = confirm ('I have lived in California, Texas, and Oklahoma' + '\nYou got ' + correct + ' of 9 answers correct!\nTry again?');
   // if user clicks 'ok' game will start agian
 }
 
