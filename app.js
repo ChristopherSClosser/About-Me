@@ -8,13 +8,10 @@ if (takeQuiz) {
   console.log ('Awesome! Lets get started!');
   document.write ('<h1>Awesome! Lets get started!</h1>');
   alert ('Awesome! Lets get started!');
-} else {
-    // console.log('Too bad starting anyway!');
-    // document.write('<h1>Too bad starting anyway!</h2>');
 }
 
 function inputVal () {
-  while (answer != 'Y' && answer != 'N') {
+  while (answer != 'Y' && answer != 'N' && answer != 'YES' && answer != 'NO') {
     answer = prompt(answer + ' Is not a valid input. Please type either a Y or N').toUpperCase();
   }
 }
@@ -26,13 +23,9 @@ while (takeQuiz) {
   function questionA () {
     var askA = 'Do I have a dog?';
     answer = prompt (yesNo + askA) .toUpperCase ();
-    /*
-    while (answer != 'Y' && answer != 'N') {
-      var answer = prompt(answer + ' Is not a valid input. Please type either a Y or N').toUpperCase();
-    }*/
+    inputVal ();
 
-    inputVal();
-    if (answer === 'Y') {
+    if (answer === 'Y' || answer === 'YES') {
       console.log ('Sorry, I do not have a dog.');
       document.write (askA + '<h2>Sorry I do not have a dog.</h2>');
       alert('Sorry, I do not have a dog.');
@@ -44,13 +37,13 @@ while (takeQuiz) {
     }
   }
 
-  // Q #2
+// --------------Q #2---------------
   function questionB () {
     var askB = 'Am I older than 40?';
-    answer = prompt (yesNo + askB);
-    inputVal();
+    answer = prompt (yesNo + askB) .toUpperCase ();
+    inputVal ();
 
-    if (answer === 'Y') {
+    if (answer === 'Y' || answer === 'YES') {
       console.log('Shame on you! Not quite.');
       document.write(askB + '<h3>Shame on you! Not quite.</h3>');
       alert ('Shame on you! Not quite.');
@@ -62,13 +55,13 @@ while (takeQuiz) {
     }
   };
 
-  // Q #3
+// --------------Q #3---------------
   function questionC () {
     var askC = 'Do I like pizza?';
     answer = prompt(yesNo + askC).toUpperCase();
     inputVal ();
 
-    if (answer === 'Y') {
+    if (answer === 'Y' || answer === 'YES') {
       correct += 1;
       console.log('Hell yes I do! It does not like me however.');
       document.write(askC + '<h4>Hell yes I do! It does not like me however.</h4>');
@@ -80,13 +73,13 @@ while (takeQuiz) {
     }
   };
 
-  // Q #4
+// --------------Q #4--------------
   function questionD () {
     var askD = 'Do I like to gamble?';
     answer = prompt(yesNo + askD).toUpperCase();
     inputVal ();
 
-    if (answer === 'Y') {
+    if (answer === 'Y' || answer === 'YES') {
       console.log('No I do not!');
       document.write(askD + '<h5>No I do not!</h5>');
       alert('No I do not!');
@@ -98,14 +91,13 @@ while (takeQuiz) {
     }
   };
 
-  // Q #5
+// --------------Q #5---------------
   function questionE () {
     var askE = 'Is it true that i have been to the moon?';
     answer = prompt(yesNo + askE).toUpperCase();
     inputVal ();
-<<<<<<< HEAD
 
-    if(answer === 'Y') {
+    if(answer === 'Y' || answer === 'YES') {
       console.log ('I wish! 12 people have been on the moon and no one since 1972.');
       document.write (askE + '<h6>I wish! 12 people have been on the moon and no one since 1972.</h6>');
       alert('I wish! 12 people have been on the moon and no one since 1972.');
@@ -117,127 +109,48 @@ while (takeQuiz) {
     }
   };
 
-  // Q #6 pick a number
+// --------------Q #6---------------
   function questionF () {
-    var userNum = prompt ('I am thinking of a number between 1 and 20.' + '\nYou have 3 tries');
-  // need to figure out how to exit loop if answer is correct
+    var userNum = prompt ('I am thinking of a number between 1 and 20. \nYou have 3 tries');
     userNum = parseInt (userNum);
     console.log(userNum);
     console.log(typeof userNum);
-    /*
-    function validNum () {
-      if (userNum === NaN) {
-        console.log('just entered the while userNum === NaN and userNum is really ' + typeof userNum);
-        userNum = prompt (userNum + ' is not a number, please enter a number between 1 and 20.');
-        userNum = parseInt (userNum);
-        console.log(typeof userNum);
-      }
-    }
-    */
 
-    //validNum ();
-    var tries = 3;
-    var myNum = Math.floor (Math.random () * 20 + 1);
-    for (var i = 0; i < 4; i++) {
-      console.log(typeof userNum);
-      console.log (myNum);
-      if (userNum === 'NaN') {
-        console.log('just entered the while userNum === NaN and userNum is really ' + typeof userNum);
+    //function to make sure user is entering a valid number
+    function validNum () {
+
+      if (userNum > 20) {
+        userNum = prompt (userNum + ' is greater than 20! Please enter a number between 1 and 20.');
+        userNum = parseInt (userNum);
+      }
+
+      while (isNaN(userNum)) {
         userNum = prompt (userNum + ' is not a number, please enter a number between 1 and 20.');
         userNum = parseInt (userNum);
         console.log(typeof userNum);
 
-      } else {
-        if (userNum !== myNum) {
-          if (i !== 3) {
-            console.log(userNum);
-            if (userNum > myNum) {
-              console.log ('I\'m sorry ' + userNum + ' is not the number I was thinking of. Try a smaller number.' + '\nYou have ' + tries + ' more tries.');
-              userNum = prompt ('I\'m sorry ' + userNum + ' is not the number I was thinking of. Try a smaller number.' + '\nYou have ' + tries + ' more tries.');
-              userNum = parseInt (userNum);
-              tries = tries - 1;
-              //validNum ();
-            } else {
-              console.log ('I\'m sorry ' + userNum + ' is not the number I was thinking of. Try a larger number.' + '\nYou have ' + tries + ' more tries.');
-              userNum = prompt ('I\'m sorry ' + userNum + ' is not the number I was thinking of. Try a larger number.' + '\nYou have ' + tries + ' more tries.');
-              userNum = parseInt (userNum);
-              tries = tries - 1;
-              //validNum ();
-            }
-          }
-        } else {
-          correct += 1;
-          console.log ('You are correct! I was thinking about ' + userNum + '.');
-          alert ('You are correct! I was thinking about ' + userNum + '.');
-          break;
+        if (userNum > 20) {
+          userNum = prompt (userNum + ' is greater than 20! Please enter a number between 1 and 20.');
+          userNum = parseInt (userNum);
         }
-      }
-    }
-  }
-  // Q #7 where have I lived
-  function questionG () {
-    var myHomes = ['California', 'Texas', 'Oklahoma'];
-    var userAns = prompt ('Besides Washington, what other states do you think I lived?');
-    // need to use wile less than 6
-    for (var i = 0; i < 6; i++) {
-      while (i <= myHomes.lenght) {
-        if (userAns !== myHomes[i]) {
-          console.log ('I\'m sorry please try again. \nI have never lived in ' + userAns);
-          alert ('I\'m sorry please try again. \nI have never lived in ' + userAns);
-          // ii++;
-        } else {
-          correct += 1;
-          console.log ('You are correct, I have lived in ' + userAns);
-          alert ('You are correct, I have lived in ' + userAns);
-          break;
-        }
-      }
-    }
-  }
-=======
-
-    if(answer === 'Y') {
-      console.log ('I wish! 12 people have been on the moon and no one since 1972.');
-      document.write (askE + '<h6>I wish! 12 people have been on the moon and no one since 1972.</h6>');
-      alert('I wish! 12 people have been on the moon and no one since 1972.');
-    } else {
-      correct += 1;
-      console.log ('Yup you are right only 12 people  have been on the moon and I am not one.');
-      document.write (askE + '<h6>Yup you are right only 12 people  have been on the moon and I am not one.</h6>');
-      alert('Yup you are right only 12 people  have been on the moon and I am not one.');
-    }
-  };
-
-  // Q #6 pick a number
-  function questionF () {
-    var userNum = prompt ('I am thinking of a number between 1 and 20.' /*'\nYou have ' /*+ tries*/);
-  // need to figure out how to exit loop if answer is correct
-    //userNum = parseInt (userNum);
-    console.log(userNum);
-    console.log(typeof userNum);
-
-    function validNum () {
-      if (userNum === NaN /*|| typeof userNum !== 'number' || userNum === null || userNum === NaN*/) {
-        console.log('just entered the while userNum === NaN and userNum is really ' + typeof userNum);
-        userNum = prompt (userNum + ' is not a number, please enter a number between 1 and 20.');
-        //userNum = parseInt (userNum);
-        console.log(typeof userNum);
       }
     }
 
     validNum ();
     var tries = 3;
     var myNum = Math.floor (Math.random () * 20 + 1);
+
     for (var i = 0; i < 4; i++) {
       console.log(typeof userNum);
       console.log (myNum);
+
       if (userNum !== myNum) {
         if (i !== 3) {
           console.log(userNum);
           if (userNum > myNum) {
             console.log ('I\'m sorry ' + userNum + ' is not the number I was thinking of. Try a smaller number.' + '\nYou have ' + tries + ' more tries.');
             userNum = prompt ('I\'m sorry ' + userNum + ' is not the number I was thinking of. Try a smaller number.' + '\nYou have ' + tries + ' more tries.');
-            //userNum = parseInt (userNum);
+            userNum = parseInt (userNum);
             tries = tries - 1;
             validNum ();
           } else {
@@ -256,27 +169,48 @@ while (takeQuiz) {
       }
     }
   }
+
   // Q #7 where have I lived
   function questionG () {
-    var myHomes = ['California', 'Texas', 'Oklahoma'];
-    var userAns = prompt ('Besides Washington, what other states do you think I lived?');
-    // need to use wile less than 6
+    var tries = 6;
+    var cali = false;
+    var tex = false;
+    var ok = false;
+
     for (var i = 0; i < 6; i++) {
-      while (i <= myHomes.lenght) {
-        if (userAns !== myHomes[i]) {
-          console.log ('I\'m sorry please try again. \nI have never lived in ' + userAns);
-          alert ('I\'m sorry please try again. \nI have never lived in ' + userAns);
-          // ii++;
-        } else {
+      var userAns = prompt('Besides Washington, what other states do you think I lived?') .toLowerCase ();
+
+      function compare () {
+        var correctString = 'You are correct, I have lived in ';
+        //if (!cali || !tex || !ok) {
+        if (userAns === 'california') {
+          tries = tries - 1;
+          cali = true;
           correct += 1;
-          console.log ('You are correct, I have lived in ' + userAns);
-          alert ('You are correct, I have lived in ' + userAns);
-          break;
+          console.log(cali + tex + ok);
+          alert (correctString + userAns + '\nYou have ' + tries + ' more tries');
+        } else if (userAns === 'texas') {
+          tries = tries - 1;
+          tex = true;
+          correct += 1;
+          console.log(cali + tex + ok);
+          alert (correctString + userAns + '\nYou have ' + tries + ' more tries');
+        }else if (userAns === 'oklahoma') {
+          tries = tries - 1;
+          ok = true;
+          correct += 1;
+          console.log(cali + tex + ok);
+          alert (correctString + userAns + '\nYou have ' + tries + ' more tries');
+        } else {
+          tries = tries - 1;
+          alert ('I have not lived in ' + userAns + '.' + '\nYou have ' + '\nYou have ' + tries + ' more tries');
+          console.log(cali + tex + ok);
         }
+        //}
       }
+      compare ();
     }
   }
->>>>>>> 34225371dfca5028372a75012014a11e3cdd74e7
 
   questionA ();
   questionB ();
@@ -286,20 +220,10 @@ while (takeQuiz) {
   questionF ();
   questionG ();
 
-  console.log (myHomes);
-  console.log ('You got ' + correct + ' of 7 answers correct!');
+  console.log ('You got ' + correct + ' of 9 answers correct!');
   // document.write();
-  takeQuiz = confirm (myHomes + '\nYou got ' + correct + ' of 7 answers correct!\nTry again?');
+  takeQuiz = confirm ('I have lived in California, Texas, and Oklahoma' + '\nYou got ' + correct + ' of 9 answers correct!\nTry again?');
   // if user clicks 'ok' game will start agian
 }
 
 // done...print the page
-
-//var tries = counter -= counter;
-<<<<<<< HEAD
-=======
-var tries = 6;
-for (var i = 0; i < 6; i++) {
-  console.log(tries = tries - 1);
-}
->>>>>>> 34225371dfca5028372a75012014a11e3cdd74e7
