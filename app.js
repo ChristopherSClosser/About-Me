@@ -53,7 +53,7 @@ while (takeQuiz) {
       document.write (askB + '<h3>That\'s right, not there yet!</h3>');
       alert ('That\'s right, not there yet!');
     }
-  };
+  }
 
 // --------------Q #3---------------
   function questionC () {
@@ -71,7 +71,7 @@ while (takeQuiz) {
       document.write(askC + '<h4>Come on! Who doesn\'t like pizza?</h4>');
       alert('Come on! Who doesn\'t like pizza?');
     }
-  };
+  }
 
 // --------------Q #4--------------
   function questionD () {
@@ -89,7 +89,7 @@ while (takeQuiz) {
       document.write( askD + '<h5>Right! It\'s bad enough all of that money leaves my possession and I get nothing.</h5>');
       alert('Right! It\'s bad enough all of that money leaves my possession and I get nothing.');
     }
-  };
+  }
 
 // --------------Q #5---------------
   function questionE () {
@@ -107,7 +107,7 @@ while (takeQuiz) {
       document.write (askE + '<h6>Yup you are right only 12 people  have been on the moon and I am not one.</h6>');
       alert('Yup you are right only 12 people  have been on the moon and I am not one.');
     }
-  };
+  }
 
 // --------------Q #6---------------
   function questionF () {
