@@ -151,13 +151,15 @@ while (takeQuiz) {
             console.log ('I\'m sorry ' + userNum + ' is not the number I was thinking of. Try a smaller number.' + '\nYou have ' + tries + ' more tries.');
             userNum = prompt ('I\'m sorry ' + userNum + ' is not the number I was thinking of. Try a smaller number.' + '\nYou have ' + tries + ' more tries.');
             userNum = parseInt (userNum);
-            tries = tries - 1;
+            //tries = tries - 1;
+            tries -= 1;
             validNum ();
           } else {
             console.log ('I\'m sorry ' + userNum + ' is not the number I was thinking of. Try a larger number.' + '\nYou have ' + tries + ' more tries.');
             userNum = prompt ('I\'m sorry ' + userNum + ' is not the number I was thinking of. Try a larger number.' + '\nYou have ' + tries + ' more tries.');
             userNum = parseInt (userNum);
-            tries = tries - 1;
+            //tries = tries - 1;
+            tries -= 1;
             validNum ();
           }
         }
@@ -184,25 +186,29 @@ while (takeQuiz) {
         var correctString = 'You are correct, I have lived in ';
         //if (!cali || !tex || !ok) {
         if (userAns === 'california') {
-          tries = tries - 1;
+          //tries = tries - 1;
+          tries -= 1;
           cali = true;
           correct += 1;
           console.log(cali + tex + ok);
           alert (correctString + userAns + '\nYou have ' + tries + ' more tries');
         } else if (userAns === 'texas') {
-          tries = tries - 1;
+          //tries = tries - 1;
+          tries -= 1;
           tex = true;
           correct += 1;
           console.log(cali + tex + ok);
           alert (correctString + userAns + '\nYou have ' + tries + ' more tries');
         }else if (userAns === 'oklahoma') {
-          tries = tries - 1;
+          //tries = tries - 1;
+          tries -= 1;
           ok = true;
           correct += 1;
           console.log(cali + tex + ok);
           alert (correctString + userAns + '\nYou have ' + tries + ' more tries');
         } else {
-          tries = tries - 1;
+          //tries = tries - 1;
+          tries -= 1;
           alert ('I have not lived in ' + userAns + '.' + '\nYou have ' + '\nYou have ' + tries + ' more tries');
           console.log(cali + tex + ok);
         }
